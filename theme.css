@@ -1,0 +1,373 @@
+/* Hyrness theme — Roam-inspired light theme for Obsidian */
+
+:root {
+  --font-text-theme: -apple-system, "Inter", "Noto Sans JP", "Hiragino Sans", "Yu Gothic UI", sans-serif;
+  --font-interface-theme: -apple-system, "Inter", "Noto Sans JP", "Hiragino Sans", "Yu Gothic UI", sans-serif;
+  --font-monospace-theme: "JetBrains Mono", "Fira Code", "Source Code Pro", monospace;
+
+  --font-text-size: 17px;
+  --line-height-normal: 1.75;
+
+  /* Roam-style light palette */
+  --color-base-00: #ffffff;
+  --color-base-05: #f8f8f8;
+  --color-base-10: #f0f0f0;
+  --color-base-20: #e8e8e8;
+  --color-base-25: #dedede;
+  --color-base-30: #d0d0d0;
+  --color-base-35: #b8b8b8;
+  --color-base-40: #9a9a9a;
+  --color-base-50: #6e6e6e;
+  --color-base-60: #4a4a4a;
+  --color-base-70: #2e2e2e;
+  --color-base-100: #111111;
+
+  --background-primary: #ffffff;
+  --background-primary-alt: #f8f8f8;
+  --background-secondary: #f3f3f3;
+  --background-secondary-alt: #ebebeb;
+  --background-modifier-border: #e0e0e0;
+  --background-modifier-hover: #f0f0f0;
+  --background-modifier-active-hover: #e8e8e8;
+
+  --text-normal: #212121;
+  --text-muted: #6e6e6e;
+  --text-faint: #9a9a9a;
+  --text-on-accent: #ffffff;
+
+  --link-color: #2e6cc7;
+  --link-color-hover: #1a4fa0;
+  --link-unresolved-color: #8b8b8b;
+  --link-external-color: #2e6cc7;
+
+  --interactive-accent: #2e6cc7;
+  --interactive-accent-hover: #1a4fa0;
+
+  /* Obsidian native list variables */
+  --list-spacing: 0.3em;
+
+  /* list indentation guide */
+  --list-guide-color: #d0d0d0;
+  --list-guide-width: 2px;
+
+  /* spacing */
+  --content-max-width: 780px;
+}
+
+/* ─── Base layout ─────────────────────────────────────────── */
+
+body {
+  font-family: var(--font-text-theme);
+  font-size: var(--font-text-size);
+  line-height: var(--line-height-normal);
+  color: var(--text-normal);
+  -webkit-font-smoothing: antialiased;
+}
+
+.workspace-leaf-content[data-type="markdown"] .view-content,
+.markdown-preview-view,
+.markdown-source-view {
+  background: var(--background-primary);
+}
+
+/* ─── Content area ────────────────────────────────────────── */
+
+.markdown-preview-view .markdown-preview-section,
+.cm-content {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: 48px 40px 80px;
+}
+
+/* ─── Title (H1 inline title) ─────────────────────────────── */
+
+.inline-title {
+  font-family: var(--font-text-theme) !important;
+  font-size: 2.2em !important;
+  font-weight: 700 !important;
+  line-height: 1.2;
+  color: var(--text-normal);
+  margin-bottom: 32px;
+  padding-bottom: 0;
+  border: none;
+  letter-spacing: -0.02em;
+}
+
+/* ─── Headings ────────────────────────────────────────────── */
+
+/* Live Preview: padding-bottom adds space below each heading line.
+   List item spacing is 0.55em top + 0.55em bottom = ~1.1em between items.
+   Headings scale from H1 (widest) down to H6. */
+.markdown-source-view.mod-cm6 .HyperMD-header-1 { padding-bottom: 1.0em !important; }
+.markdown-source-view.mod-cm6 .HyperMD-header-2 { padding-bottom: 0.8em !important; }
+.markdown-source-view.mod-cm6 .HyperMD-header-3 { padding-bottom: 0.6em !important; }
+.markdown-source-view.mod-cm6 .HyperMD-header-4 { padding-bottom: 0.5em !important; }
+.markdown-source-view.mod-cm6 .HyperMD-header-5 { padding-bottom: 0.4em !important; }
+.markdown-source-view.mod-cm6 .HyperMD-header-6 { padding-bottom: 0.3em !important; }
+
+.markdown-preview-view h1,
+.HyperMD-header-1 .cm-header-1 {
+  font-size: 2em;
+  font-weight: 700;
+  margin-top: 1.5em;
+  margin-bottom: 1.0em;
+  letter-spacing: -0.02em;
+}
+
+.markdown-preview-view h2,
+.HyperMD-header-2 .cm-header-2 {
+  font-size: 1.5em;
+  font-weight: 600;
+  margin-top: 1.4em;
+  margin-bottom: 0.8em;
+}
+
+.markdown-preview-view h3,
+.HyperMD-header-3 .cm-header-3 {
+  font-size: 1.2em;
+  font-weight: 600;
+  margin-top: 1.2em;
+  margin-bottom: 0.6em;
+}
+
+.markdown-preview-view h4 { font-size: 1.05em; font-weight: 600; margin-top: 1.0em; margin-bottom: 0.5em; }
+.markdown-preview-view h5 { font-size: 1.0em;  font-weight: 600; margin-top: 0.9em; margin-bottom: 0.4em; }
+.markdown-preview-view h6 { font-size: 0.95em; font-weight: 600; margin-top: 0.8em; margin-bottom: 0.3em; color: var(--text-muted); }
+
+/* ─── Lists — Roam style ──────────────────────────────────── */
+
+/* Reading View (actual li elements) */
+.markdown-preview-view li,
+.markdown-reading-view li {
+  margin-bottom: 1.4em !important;
+  padding-bottom: 0 !important;
+}
+
+.markdown-preview-view li li,
+.markdown-reading-view li li {
+  margin-bottom: 0.8em !important;
+}
+
+/* Live Preview (CM6) — lists render as .HyperMD-list-line divs */
+.markdown-source-view.mod-cm6 .HyperMD-list-line {
+  padding-top: 0.3em !important;
+  padding-bottom: 0.3em !important;
+}
+
+/* nested levels slightly tighter than top level */
+.markdown-source-view.mod-cm6 .HyperMD-list-line-2,
+.markdown-source-view.mod-cm6 .HyperMD-list-line-3,
+.markdown-source-view.mod-cm6 .HyperMD-list-line-4,
+.markdown-source-view.mod-cm6 .HyperMD-list-line-5 {
+  padding-top: 0.25em !important;
+  padding-bottom: 0.25em !important;
+}
+
+
+
+/* ─── Paragraph spacing ───────────────────────────────────── */
+
+.markdown-preview-view p {
+  margin-bottom: 0.8em;
+  margin-top: 0;
+}
+
+/* ─── Links ───────────────────────────────────────────────── */
+
+.markdown-preview-view a,
+.cm-url,
+.cm-link {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+.markdown-preview-view a:hover {
+  color: var(--link-color-hover);
+  text-decoration: underline;
+}
+
+/* internal wiki-links */
+.internal-link {
+  color: var(--link-color);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.15s;
+}
+
+.internal-link:hover {
+  border-bottom-color: var(--link-color);
+}
+
+/* unresolved links */
+.internal-link.is-unresolved {
+  color: var(--link-unresolved-color);
+  border-bottom-style: dashed;
+  border-bottom-color: var(--link-unresolved-color);
+  opacity: 0.7;
+}
+
+/* ─── Code ────────────────────────────────────────────────── */
+
+code {
+  font-family: var(--font-monospace-theme);
+  font-size: 0.875em;
+  background: #f0f0f0;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 0.15em 0.4em;
+  color: #c7254e;
+}
+
+pre {
+  background: #f6f6f6;
+  border: 1px solid #e4e4e4;
+  border-radius: 6px;
+  padding: 1.2em 1.4em;
+  overflow-x: auto;
+}
+
+pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font-size: 0.9em;
+}
+
+/* ─── Blockquote ──────────────────────────────────────────── */
+
+.markdown-preview-view blockquote {
+  border-left: 3px solid var(--interactive-accent);
+  margin: 1em 0;
+  padding: 0.4em 1.2em;
+  color: var(--text-muted);
+  background: #f7f9ff;
+  border-radius: 0 4px 4px 0;
+}
+
+/* ─── Horizontal rule ─────────────────────────────────────── */
+
+.markdown-preview-view hr {
+  border: none;
+  border-top: 1px solid var(--background-modifier-border);
+  margin: 2em 0;
+}
+
+/* ─── Tables ──────────────────────────────────────────────── */
+
+.markdown-preview-view table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1em 0;
+}
+
+.markdown-preview-view th,
+.markdown-preview-view td {
+  border: 1px solid var(--background-modifier-border);
+  padding: 0.5em 0.8em;
+  text-align: left;
+}
+
+.markdown-preview-view th {
+  background: var(--background-secondary);
+  font-weight: 600;
+}
+
+.markdown-preview-view tr:nth-child(even) td {
+  background: var(--background-primary-alt);
+}
+
+/* ─── Tags ────────────────────────────────────────────────── */
+
+.tag {
+  background: #eef4ff;
+  color: #2e6cc7;
+  border-radius: 12px;
+  padding: 0.1em 0.6em;
+  font-size: 0.85em;
+  text-decoration: none;
+}
+
+.tag:hover {
+  background: #d8eaff;
+}
+
+/* ─── Left sidebar ────────────────────────────────────────── */
+
+.nav-file-title,
+.nav-folder-title {
+  font-size: 0.9em;
+  padding: 3px 8px;
+  color: var(--text-normal);
+  border-radius: 4px;
+}
+
+.nav-file-title:hover,
+.nav-folder-title:hover,
+.nav-file-title.is-active {
+  background: var(--background-modifier-hover);
+}
+
+.nav-file-title.is-active {
+  background: #ddeeff;
+  color: var(--interactive-accent);
+  font-weight: 500;
+}
+
+/* ─── Scrollbar ───────────────────────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-base-30);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-base-40);
+}
+
+/* ─── Editor (source mode) ────────────────────────────────── */
+
+.cm-editor .cm-content {
+  font-family: var(--font-text-theme);
+  font-size: var(--font-text-size);
+  line-height: var(--line-height-normal);
+  color: var(--text-normal);
+}
+
+.cm-editor {
+  background: var(--background-primary);
+}
+
+/* ─── Status bar ──────────────────────────────────────────── */
+
+.status-bar {
+  background: var(--background-secondary);
+  border-top: 1px solid var(--background-modifier-border);
+  font-size: 12px;
+  color: var(--text-faint);
+}
+
+/* ─── Modal / popover ─────────────────────────────────────── */
+
+.modal,
+.popover {
+  background: var(--background-primary);
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+/* ─── Suggestion / quick switcher ────────────────────────── */
+
+.suggestion-item.is-selected {
+  background: #ddeeff;
+  color: var(--interactive-accent);
+}
