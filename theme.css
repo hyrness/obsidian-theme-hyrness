@@ -172,6 +172,12 @@ body {
   margin-top: 0;
 }
 
+/* Live Preview: give plain paragraph lines the same breathing room as list items */
+.markdown-source-view.mod-cm6 .cm-line:not([class*="HyperMD"]) {
+  padding-top: 0.3em !important;
+  padding-bottom: 0.3em !important;
+}
+
 /* ─── Links ───────────────────────────────────────────────── */
 
 .markdown-preview-view a,
@@ -223,7 +229,15 @@ pre {
   border: 1px solid #e4e4e4;
   border-radius: 6px;
   padding: 1.2em 1.4em;
+  margin-top: 1.2em;
+  margin-bottom: 1.2em;
   overflow-x: auto;
+}
+
+/* Live Preview fenced code block wrapper */
+.markdown-source-view.mod-cm6 .cm-embed-block {
+  margin-top: 2em !important;
+  margin-bottom: 2em !important;
 }
 
 pre code {
