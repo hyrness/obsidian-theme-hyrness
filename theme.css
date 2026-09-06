@@ -249,6 +249,12 @@ pre {
   margin-bottom: 2em !important;
 }
 
+/* Tables are also .cm-embed-block widgets; keep them close to the body text */
+.markdown-source-view.mod-cm6 .cm-table-widget {
+  margin-top: 0.5em !important;
+  margin-bottom: 0.5em !important;
+}
+
 pre code {
   background: none;
   border: none;
