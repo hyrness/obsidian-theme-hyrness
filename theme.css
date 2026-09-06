@@ -178,6 +178,19 @@ body {
   padding-bottom: 0.3em !important;
 }
 
+/* ─── Cursor & active line (Live Preview) ─────────────────── */
+
+/* highlight the line the cursor sits on, so it stays findable next to images */
+.markdown-source-view.mod-cm6 .cm-line.cm-active {
+  background: rgba(46, 108, 199, 0.15);
+}
+
+/* thicker, accent-colored caret */
+.markdown-source-view.mod-cm6 .cm-cursor,
+.markdown-source-view.mod-cm6 .cm-cursor-primary {
+  border-left: 2px solid var(--interactive-accent) !important;
+}
+
 /* ─── Links ───────────────────────────────────────────────── */
 
 .markdown-preview-view a,
