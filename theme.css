@@ -191,6 +191,13 @@ body {
   border-left: 2px solid var(--interactive-accent) !important;
 }
 
+/* Obsidian widens .cm-indent with min-width: var(--list-indent), but the tab
+   inside keeps its narrower tab-size width. CodeMirror places the caret at the
+   end of the tab glyph, so it lands mid-indent. Make the tab fill the indent. */
+.markdown-source-view.mod-cm6 .cm-indent {
+  tab-size: var(--list-indent);
+}
+
 /* ─── Links ───────────────────────────────────────────────── */
 
 .markdown-preview-view a,
