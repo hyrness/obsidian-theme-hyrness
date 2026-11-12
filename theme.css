@@ -279,6 +279,14 @@ pre {
   margin-bottom: 0.5em !important;
 }
 
+/* the blank source lines around a table render as full empty lines; shrink them */
+.markdown-source-view.mod-cm6 .cm-line:has(+ .cm-table-widget):has(> br:only-child),
+.markdown-source-view.mod-cm6 .cm-table-widget + .cm-line:has(> br:only-child) {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+  line-height: 0.6;
+}
+
 pre code {
   background: none;
   border: none;
@@ -308,26 +316,42 @@ pre code {
 
 /* ─── Tables ──────────────────────────────────────────────── */
 
-.markdown-preview-view table {
+.theme-light {
+  --table-border-color: #d0d0d0;
+  --table-header-background: #eeeeee;
+  --table-row-alt-background: #f8f8f8;
+}
+
+.theme-dark {
+  --table-border-color: #4a4a4a;
+  --table-header-background: #2e2e2e;
+  --table-row-alt-background: #232323;
+}
+
+/* .markdown-rendered covers both Reading View and the Live Preview table widget */
+.markdown-rendered table {
   border-collapse: collapse;
   width: 100%;
+}
+
+.markdown-preview-view table {
   margin: 1em 0;
 }
 
-.markdown-preview-view th,
-.markdown-preview-view td {
-  border: 1px solid var(--background-modifier-border);
+.markdown-rendered th,
+.markdown-rendered td {
+  border: 1px solid var(--table-border-color) !important;
   padding: 0.5em 0.8em;
   text-align: left;
 }
 
-.markdown-preview-view th {
-  background: var(--background-secondary);
+.markdown-rendered th {
+  background: var(--table-header-background) !important;
   font-weight: 600;
 }
 
-.markdown-preview-view tr:nth-child(even) td {
-  background: var(--background-primary-alt);
+.markdown-rendered tr:nth-child(even) td {
+  background: var(--table-row-alt-background);
 }
 
 /* ─── Tags ────────────────────────────────────────────────── */
