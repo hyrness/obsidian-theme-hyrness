@@ -279,12 +279,19 @@ pre {
   margin-bottom: 0.5em !important;
 }
 
-/* the blank source lines around a table render as full empty lines; shrink them */
+/* the blank source lines around a table or blockquote render as full empty lines; shrink them */
 .markdown-source-view.mod-cm6 .cm-line:has(+ .cm-table-widget):has(> br:only-child),
-.markdown-source-view.mod-cm6 .cm-table-widget + .cm-line:has(> br:only-child) {
+.markdown-source-view.mod-cm6 .cm-table-widget + .cm-line:has(> br:only-child),
+.markdown-source-view.mod-cm6 .cm-line:has(+ .HyperMD-quote):not(.HyperMD-quote):has(> br:only-child),
+.markdown-source-view.mod-cm6 .HyperMD-quote + .cm-line:not(.HyperMD-quote):has(> br:only-child) {
   padding-top: 0 !important;
   padding-bottom: 0 !important;
   line-height: 0.6;
+}
+
+.markdown-source-view.mod-cm6 .cm-line:has(+ .HyperMD-quote):not(.HyperMD-quote):has(> br:only-child),
+.markdown-source-view.mod-cm6 .HyperMD-quote + .cm-line:not(.HyperMD-quote):has(> br:only-child) {
+  line-height: calc(0.6em - 5px);
 }
 
 pre code {
