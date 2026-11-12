@@ -313,6 +313,19 @@ pre code {
   border-radius: 0 4px 4px 0;
 }
 
+.theme-light {
+  --quote-background: #f0f0f0;
+}
+
+.theme-dark {
+  --quote-background: #2a2a2a;
+}
+
+/* Live Preview; leave the active-line highlight visible on quote lines */
+.markdown-source-view.mod-cm6 .HyperMD-quote:not(.cm-active) {
+  background: var(--quote-background);
+}
+
 /* ─── Horizontal rule ─────────────────────────────────────── */
 
 .markdown-preview-view hr {
